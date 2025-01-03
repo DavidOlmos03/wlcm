@@ -1,0 +1,6 @@
+.git
+.venv_wlcm
+build/
+dist/
+welcome.mp3
+wlcm.spec
