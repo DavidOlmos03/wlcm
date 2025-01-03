@@ -1,0 +1,3 @@
+USER_NAME=David
+MOTIVATIONAL_QUOTES=El éxito es la suma de pequeños esfuerzos repetidos día tras día.;La única manera de hacer un gran trabajo es amar lo que haces.;No importa qué tan lento vayas, siempre y cuando no te detengas.;El futuro pertenece a quienes creen en la belleza de sus sueños.;La acción es la clave fundamental de todo éxito.
+

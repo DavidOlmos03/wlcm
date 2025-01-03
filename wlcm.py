@@ -1,32 +1,31 @@
 import tkinter as tk
 import random
-import pyttsx3
 import threading
-
-# Lista de frases motivadoras
-motivational_quotes = [
-    "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
-    "La única manera de hacer un gran trabajo es amar lo que haces.",
-    "No importa qué tan lento vayas, siempre y cuando no te detengas.",
-    "El futuro pertenece a quienes creen en la belleza de sus sueños.",
-    "La acción es la clave fundamental de todo éxito."
-]
-
-# Función para sintetizar voz
-# def speak(text):
-
-    # engine = pyttsx3.init()
-    #
-    # voices = engine.getProperty('voices')
-    #
-    # engine.setProperty('rate', 150)  # Velocidad de la voz
-    # engine.setProperty('volume', 1.0)  # Volumen de la voz
-    # engine.say(text)
-    # engine.runAndWait()
-
 from pydub import AudioSegment
 from pydub.playback import play
 
+
+# Función para leer variables del archivo
+def load_config(filename):
+    config = {}
+    with open(filename, 'r') as file:
+        for line in file:
+            line = line.strip()
+            if '=' in line:  # Verifica si la línea contiene '='
+                key, value = line.split('=', 1)
+                config[key] = value
+    return config
+
+# Cargar configuración desde el archivo
+config = load_config("config.txt")
+
+# Obtener el nombre del usuario
+user_name = config.get("USER_NAME", "Usuario")
+
+# Obtener y dividir las frases motivacionales
+motivational_quotes = config.get("MOTIVATIONAL_QUOTES", "").split(";")
+
+# configuración del audio 
 def speak(text):
     from gtts import gTTS
     tts = gTTS(text, lang='en')
@@ -48,7 +47,7 @@ def create_welcome_window():
     root.configure(bg="#f7f7f7")
 
     # Etiqueta de bienvenida
-    welcome_text = "Welcome David, good code"  # Cambia tu nombre aquí
+    welcome_text = f"Welcome {user_name}, good code"  
     welcome_label = tk.Label(
         root,
         text=welcome_text,
