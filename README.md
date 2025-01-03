@@ -80,3 +80,7 @@ Esto generará un archivo ejecutable en la carpeta dist/ (por ejemplo, dist\wlcm
     - Copia el acceso directo generado en la carpeta que se abre.
 
 4. Reinicia tu sistema para probar la aplicación.
+
+
+![Application wlcm](./assets/imgs/imgREADME.png "Wlcm")
+

@@ -17,7 +17,7 @@ def load_config(filename):
     return config
 
 # Cargar configuración desde el archivo
-config = load_config("config.txt")
+config = load_config("assets/config.txt")
 
 # Obtener el nombre del usuario
 user_name = config.get("USER_NAME", "Usuario")
@@ -29,7 +29,7 @@ motivational_quotes = config.get("MOTIVATIONAL_QUOTES", "").split(";")
 def speak(text):
     from gtts import gTTS
     tts = gTTS(text, lang='en')
-    audio_file = "welcome.mp3"
+    audio_file = "assets/welcome.mp3"
     tts.save(audio_file)
 
     audio = AudioSegment.from_file(audio_file)
